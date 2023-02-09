@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { ResponseData } from "../../types/apiResponseType";
+import LoadingSpinner from "../loadingSpinner";
 import Character from "./Character";
 
 const CharacterList = () => {
@@ -17,7 +18,7 @@ const CharacterList = () => {
   }, []);
   return (
     <div>
-      <Character data={starsData} />
+      {starsData?.length ? <Character data={starsData} /> : <LoadingSpinner />}
     </div>
   );
 };
