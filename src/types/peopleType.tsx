@@ -6,3 +6,8 @@ export interface PeopleResponse {
   eye_color: string;
   films: string[];
 }
+
+export enum Gender {
+  MALE = "male",
+  FEMALE = "female",
+}

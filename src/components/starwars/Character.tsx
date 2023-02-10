@@ -1,4 +1,5 @@
 import { Card } from "react-bootstrap";
+import { Gender } from "../../types/peopleType";
 import "./Character.css";
 
 const Character = (starwars: any) => {
@@ -14,11 +15,20 @@ const Character = (starwars: any) => {
               <Card className="__character-cards shadow-lg bg-grey rounded">
                 <Card.Body>
                   <Card.Title>
-                    <Card.Link href={`/people/${data?.url.substr(-2, 1)}`}>
+                    <Card.Link
+                      href={`/people/${data?.url.substr(-2, 1)}`}
+                      target="_blank"
+                    >
                       {data?.name}
                     </Card.Link>
                   </Card.Title>
-                  <Card.Subtitle>{data?.gender}</Card.Subtitle>
+                  <Card.Subtitle>
+                    {data?.gender === Gender.MALE
+                      ? "Male"
+                      : data?.gender === Gender.FEMALE
+                      ? "Female"
+                      : "N/A"}
+                  </Card.Subtitle>
                 </Card.Body>
                 <Card.Body>
                   <Card.Link href={`${data?.homeworld}`}>
