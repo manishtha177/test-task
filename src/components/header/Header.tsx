@@ -1,11 +1,7 @@
-import { Nav } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
-import { useParams } from "react-router-dom";
 
 const Header = () => {
-  const { id } = useParams();
-
   return (
     <>
       <Navbar bg="dark" variant="dark" fixed="top">
