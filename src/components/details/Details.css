@@ -1,0 +1,25 @@
+.__character-title {
+  /* margin: 1em 0 0.5em 0; */
+  color: #343434;
+  font-weight: bold;
+  font-family: "Ultra", sans-serif;
+  font-size: 1.5rem;
+  line-height: 10vh;
+  text-transform: uppercase;
+  text-shadow: 0 2px white, 0 3px #777;
+}
+
+.__cards {
+  width: 25rem;
+  max-height: 30rem;
+  background-color: lightgray;
+  text-align: center;
+  overflow: hidden;
+}
+
+.__starwars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
