@@ -1,5 +1,4 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Button, Card } from "react-bootstrap";
 import { Gender, PeopleResponse } from "../../types/peopleType";
@@ -23,26 +22,27 @@ const Details = () => {
   const [starData, setStarData] = useState<PeopleResponse>(initialValues);
   const [loading, setLoading] = useState<boolean>(true);
 
-  const fetch = async () => {
-    const res = await axios
-      .get(`https://swapi.dev/api/people/${id}`)
-      .catch((error) => {
-        console.error(`Error: ${error.message}`);
+  const fetchDetails = async () => {
+    const data = await fetch(`https://swapi.dev/api/people/${id}`)
+      .then((res) => res.json())
+      .catch((err) => {
+        throw err;
       });
-    setStarData(res?.data);
+    setStarData(data);
     setLoading(false);
   };
 
   useEffect(() => {
-    fetch();
+    fetchDetails();
   }, []);
 
   return (
-    <div>
+    <div data-testid="details-page">
       {!loading ? (
         <div
           className="container mt-5 full-height"
           style={{ padding: "50px 0" }}
+          data-testid="details"
         >
           <div className="row">
             <div className="col-sm-4">

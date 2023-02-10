@@ -1,5 +1,4 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ResponseData } from "../../types/apiResponseType";
 import LoadingSpinner from "../loadingSpinner";
 import Character from "./Character";
@@ -7,17 +6,19 @@ import Character from "./Character";
 const CharacterList = () => {
   const [starsData, setStarsData] = useState<ResponseData[]>([]);
   const fetchData = async () => {
-    const res = await axios
-      .get(`https://swapi.dev/api/people`)
-      .catch((error) => console.error(`Error: ${error.message}`));
-    setStarsData(res?.data?.results);
+    const data = await fetch("https://swapi.dev/api/people")
+      .then((res) => res.json())
+      .catch((err) => {
+        throw err;
+      });
+    setStarsData(data?.results);
   };
 
   useEffect(() => {
     fetchData();
   }, []);
   return (
-    <div>
+    <div data-testid="character-list">
       {starsData?.length ? <Character data={starsData} /> : <LoadingSpinner />}
     </div>
   );

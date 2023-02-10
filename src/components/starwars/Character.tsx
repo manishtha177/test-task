@@ -1,3 +1,4 @@
+import React from "react";
 import { Card } from "react-bootstrap";
 import { Gender } from "../../types/peopleType";
 import "./Character.css";
@@ -19,6 +20,7 @@ const Character = (starwars: any) => {
               <div
                 key={index}
                 className="__star-wars col-sm-12 col-md-6  col-lg-4"
+                data-testid="character-card"
               >
                 <Card className="__character-cards shadow-sm bg-white rounded ">
                   <div className="image_box">

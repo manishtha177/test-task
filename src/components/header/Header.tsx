@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 const Header = () => {
   return (
     <>
-      <Navbar bg="dark" variant="dark" fixed="top">
+      <Navbar bg="dark" variant="dark" fixed="top" data-testid="header">
         <Container className="__header">
           <Navbar.Brand href="/">Star Wars</Navbar.Brand>
         </Container>
