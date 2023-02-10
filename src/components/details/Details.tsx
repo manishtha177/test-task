@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { Card } from "react-bootstrap";
-import { PeopleResponse } from "../../types/peopleType";
+import { Button, Card } from "react-bootstrap";
+import { Gender, PeopleResponse } from "../../types/peopleType";
 import LoadingSpinner from "../loadingSpinner";
 import "./Details.css";
+import avatar from "../../utils/avatar.png";
+import { Link } from "react-router-dom";
 
 const Details = () => {
   const { id } = useParams();
@@ -38,30 +40,42 @@ const Details = () => {
   return (
     <div>
       {!loading ? (
-        <div className="__starwars">
-          <Card className="__cards shadow-lg bg-grey rounded">
-            <Card.Title className="__character-title">
-              {starData?.name}
-            </Card.Title>
-            <Card.Body className="__cards-details">
-              <Card.Subtitle>Hair Color:</Card.Subtitle>
-              <Card.Text> {starData?.hair_color}</Card.Text>
-              <Card.Subtitle>Eye Color: </Card.Subtitle>
-              <Card.Text>{starData?.eye_color}</Card.Text>
-              <Card.Subtitle>Gender: </Card.Subtitle>
-              <Card.Text>{starData?.gender}</Card.Text>
-              <Card.Subtitle>Home PLanet:</Card.Subtitle>
-              <Card.Link href={`${starData?.homeworld}`}>
-                {starData?.homeworld}
-              </Card.Link>
-              <Card.Subtitle>Films</Card.Subtitle>
+        <div
+          className="container mt-5 full-height"
+          style={{ padding: "50px 0" }}
+        >
+          <div className="row">
+            <div className="col-sm-4">
+              <div className="image_box border text-center">
+                <Card.Img variant="top" src={avatar} className="__avatar" />
+              </div>
+            </div>
+            <div className="col-sm-8">
+              <h2> {starData?.name}</h2>
+              <h5>Hair Color : {starData?.hair_color}</h5>
+              <h5>Eye Color : {starData?.eye_color}</h5>
+              <h5>
+                Gender :
+                {starData?.gender === Gender.MALE
+                  ? " Male"
+                  : starData?.gender === Gender.FEMALE
+                  ? " Female"
+                  : " N/A"}
+              </h5>
+              <h5>Home World : {starData?.homeworld}</h5>
+              <h5>Films : </h5>
               {starData?.films.map((film, index) => (
                 <div key={index}>
-                  <Card.Link href={`${film}`}>{film}</Card.Link>
+                  <Link to={`${film}`}>
+                    <h5>{film}</h5>
+                  </Link>
                 </div>
               ))}
-            </Card.Body>
-          </Card>
+            </div>
+          </div>
+          <Button variant="primary" href="/">
+            Back
+          </Button>
         </div>
       ) : (
         <LoadingSpinner />

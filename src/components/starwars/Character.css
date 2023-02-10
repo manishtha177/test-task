@@ -1,5 +1,5 @@
 .__heading {
-  margin: 1em 0 0.5em 0;
+  margin: 2.5em 0 0.5em 0;
   color: #343434;
   font-weight: normal;
   font-family: "Ultra", sans-serif;
@@ -7,8 +7,20 @@
   line-height: 10vh;
   text-transform: uppercase;
   text-shadow: 0 2px white, 0 3px #777;
+  padding-left: "20px";
+  padding-top: "50px";
 }
-
+.image_box {
+  background-color: #fff;
+  padding: 20px 0;
+}
+.__avatar {
+  width: 180px;
+  height: 180px;
+}
+.body__content {
+  background-color: #fff;
+}
 .__star-wars {
   display: flex;
   justify-content: center;
@@ -17,7 +29,7 @@
 
 .__character-cards {
   width: 18rem;
-  height: 12rem;
+  height: 28rem;
   background-color: lightgray;
   text-align: center;
 }

@@ -9,6 +9,17 @@
   text-shadow: 0 2px white, 0 3px #777;
 }
 
+.image_box {
+  background-color: #fff;
+  padding: 20px 0;
+}
+.__avatar {
+  width: 180px;
+  height: 180px;
+}
+.full-height {
+  height: 90vh;
+}
 .__cards {
   width: 25rem;
   max-height: 30rem;
